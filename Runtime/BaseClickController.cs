@@ -5,6 +5,7 @@ using UnityEngine.UI;
 namespace UIFoundations
 {
     [DisallowMultipleComponent]
+    [RequireComponent(typeof(CanvasRenderer))]
     public abstract class BaseClickController : Graphic, IPointerClickHandler
     {
         [SerializeField] private bool interactable = true;
