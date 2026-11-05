@@ -2,6 +2,12 @@
 
 All notable changes to this package are documented in this file.
 
+## [Unreleased]
+
+### Documentation
+
+- Documented how coding agents use this package.
+
 ## [0.1.0] - 2026-11-05
 
 ### Added

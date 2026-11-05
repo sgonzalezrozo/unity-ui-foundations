@@ -96,6 +96,21 @@ public class PurchaseStateView : MonoBehaviour
 | `IsTransitioning` | Says whether a transition is running |
 | `OnStateChanged` | Runs after the state changes |
 
+## Use with coding agents
+
+[Unity Architecture Agents](https://github.com/sgonzalezrozo/unity-architecture-agents) works with or without this package. Its rules use Unity's own `IPointerClickHandler` by default.
+
+An agent reads `Packages/manifest.json`. If it lists `com.sgonzalezrozo.ui-foundations`, the agent uses this package as follows:
+
+| Need | Use |
+|---|---|
+| A click Controller | Subclass `BaseClickController` and override `OnClick()` |
+| Disable clicks | Set `Interactable` to `false` |
+| Cache a Cell Model | Override `InitializeController()` and return `true` |
+| Mutually exclusive looks | `ViewStateMachine` and `SetState(stateName)` |
+
+Name each state after its enum value. If a Controller cleans up in `OnDestroy`, override it and call `base.OnDestroy()`, because `BaseClickController` derives from `Graphic`.
+
 ## Project status
 
 This is a pre-release package at version `0.1.0`. Its API and behavior may change before `1.0.0`. Not yet used in a shipped game. There's no automated test suite yet.
@@ -110,6 +125,7 @@ Bug reports and pull requests are welcome. Please open an issue before starting 
 
 | Package | Purpose |
 |---|---|
+| [Unity Architecture Agents](https://github.com/sgonzalezrozo/unity-architecture-agents) | Architecture rules for coding agents |
 | [Fast IoC](https://github.com/sgonzalezrozo/unity-fast-ioc) | Code-generated dependency injection |
 | [Screen System](https://github.com/sgonzalezrozo/unity-screen-system) | Declarative UI navigation |
 | [UI Tweens](https://github.com/sgonzalezrozo/unity-ui-tweens) | ECS-based UI animation |
