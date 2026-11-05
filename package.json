@@ -1,0 +1,25 @@
+{
+  "name": "com.sgonzalezrozo.ui-foundations",
+  "version": "0.1.0",
+  "displayName": "UI Foundations",
+  "description": "Small uGUI building blocks for strict MVC: a click Controller base class and a view state machine.",
+  "unity": "2022.3",
+  "license": "MIT",
+  "author": {
+    "name": "Santiago González Rozo",
+    "url": "https://github.com/sgonzalezrozo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sgonzalezrozo/unity-ui-foundations.git"
+  },
+  "keywords": [
+    "ui",
+    "ugui",
+    "mvc",
+    "state-machine"
+  ],
+  "dependencies": {
+    "com.unity.ugui": "1.0.0"
+  }
+}
