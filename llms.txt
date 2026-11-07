@@ -1,6 +1,6 @@
 # UI Foundations
 
-> uGUI building blocks for strict MVC in Unity 6: `BaseClickController`, an invisible raycast target with an `OnClick()` override that replaces `Button`, and `ViewStateMachine`, which shows one of several mutually exclusive looks with instant or fade transitions. Keeps input and visuals apart. MIT licensed, pre-release (0.x).
+> uGUI building blocks for strict MVC in Unity 6: `BaseClickController`, an invisible raycast target with an `OnClick()` override that replaces `Button`, and `ViewStateMachine`, which shows one of several mutually exclusive looks with instant or fade transitions. Keeps input and visuals apart. MIT licensed, pre-release (0.x), single author, no other users yet.
 
 ## Docs
 

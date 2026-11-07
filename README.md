@@ -6,9 +6,7 @@
 [![Tested on Unity 6000.3](https://img.shields.io/badge/Unity-6000.3%20tested-black?logo=unity)](#compatibility)
 [![Version 0.1.0](https://img.shields.io/badge/version-0.1.0-blue.svg)](CHANGELOG.md)
 
-UI Foundations is a free, open-source replacement for uGUI's `Button` and `Toggle` in Unity 6, for projects that keep input and visuals apart (MVC). `BaseClickController` is an invisible raycast target with an `OnClick()` override, and `ViewStateMachine` switches between mutually exclusive looks with instant or fade transitions.
-
-UI Foundations replaces uGUI's `Button` and `Toggle` with two small parts that keep input and visuals apart: `BaseClickController` receives clicks, and `ViewStateMachine` shows one look at a time.
+UI Foundations is a free, open-source alternative to uGUI's `Button` and `Toggle` in Unity 6, for MVC projects that keep input and visuals apart. `BaseClickController` is an invisible raycast target with an `OnClick()` override, and `ViewStateMachine` shows one of several looks at a time, with instant or fade transitions.
 
 ## Why I built it
 
@@ -139,7 +137,19 @@ No. It's built on uGUI.
 
 ### Does it work with AI coding agents?
 
-Yes, through a rules file you copy into your project. See [Use with coding agents](#use-with-coding-agents).
+It ships a rules file you copy into your project, so agents use its real API instead of guessing. It hasn't been tested with agents beyond the author's own projects. See [Use with coding agents](#use-with-coding-agents).
+
+### How do I make a custom button in Unity?
+
+Subclass `BaseClickController`, override `OnClick()`, and put the visuals on separate components driven by a View. Without this package, implement `IPointerClickHandler` on a MonoBehaviour with a transparent `Image`.
+
+### How do I install it?
+
+In Unity, open **Window > Package Manager**, select **+ > Add package from git URL** and enter `https://github.com/sgonzalezrozo/unity-ui-foundations.git`. See [Installation](#installation).
+
+### Is it production-ready? Does anyone use it?
+
+Not yet. UI Foundations is a pre-release package (`0.1.0`) by a single author, with no automated tests yet. It isn't used in a shipped game, and it has no other users yet. Bug reports are very welcome. See [Project status](#project-status).
 
 ### Is it free for commercial use?
 
