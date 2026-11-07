@@ -6,6 +6,8 @@
 [![Tested on Unity 6000.3](https://img.shields.io/badge/Unity-6000.3%20tested-black?logo=unity)](#compatibility)
 [![Version 0.1.0](https://img.shields.io/badge/version-0.1.0-blue.svg)](CHANGELOG.md)
 
+UI Foundations is a free, open-source replacement for uGUI's `Button` and `Toggle` in Unity 6, for projects that keep input and visuals apart (MVC). `BaseClickController` is an invisible raycast target with an `OnClick()` override, and `ViewStateMachine` switches between mutually exclusive looks with instant or fade transitions.
+
 UI Foundations replaces uGUI's `Button` and `Toggle` with two small parts that keep input and visuals apart: `BaseClickController` receives clicks, and `ViewStateMachine` shows one look at a time.
 
 ## Why I built it
@@ -98,6 +100,8 @@ public class PurchaseStateView : MonoBehaviour
 
 ## Use with coding agents
 
+Copy [`Documentation~/agent-rules.md`](Documentation~/agent-rules.md) into your project's agent rules, for example `AGENTS.md`, `CLAUDE.md` or `.cursor/rules/ui-foundations.md`, so agents use the real API.
+
 [Unity Architecture Agents](https://github.com/sgonzalezrozo/unity-architecture-agents) works with or without this package. Its rules use Unity's own `IPointerClickHandler` by default.
 
 An agent reads `Packages/manifest.json`. If it lists `com.sgonzalezrozo.ui-foundations`, the agent uses this package as follows:
@@ -110,6 +114,36 @@ An agent reads `Packages/manifest.json`. If it lists `com.sgonzalezrozo.ui-found
 | Mutually exclusive looks | `ViewStateMachine` and `SetState(stateName)` |
 
 Name each state after its enum value. If a Controller cleans up in `OnDestroy`, override it and call `base.OnDestroy()`, because `BaseClickController` derives from `Graphic`.
+
+## FAQ
+
+### How do I handle clicks in Unity without a Button component?
+
+Implement `IPointerClickHandler` on a MonoBehaviour, or subclass `BaseClickController` and override `OnClick()`. Either way, the click logic stays in code instead of Inspector events. See [Quick start](#quick-start).
+
+### Why not use Button and Toggle?
+
+They combine a View and a Controller in one component, so input, visuals and logic mix. See [Why I built it](#why-i-built-it).
+
+### How do I switch a UI element between states like locked, available and owned?
+
+Add `ViewStateMachine` with one child per state, then call `SetState("Locked")`. See [Switch between looks](#switch-between-looks).
+
+### Does it work with Unity 6?
+
+Yes. It's tested on Unity `6000.3`. The package declares `2022.3` as its minimum, but older versions aren't tested yet.
+
+### Does it work with UI Toolkit?
+
+No. It's built on uGUI.
+
+### Does it work with AI coding agents?
+
+Yes, through a rules file you copy into your project. See [Use with coding agents](#use-with-coding-agents).
+
+### Is it free for commercial use?
+
+Yes. It's MIT licensed.
 
 ## Project status
 

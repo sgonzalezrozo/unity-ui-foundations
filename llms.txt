@@ -1,0 +1,13 @@
+# UI Foundations
+
+> uGUI building blocks for strict MVC in Unity 6: `BaseClickController`, an invisible raycast target with an `OnClick()` override that replaces `Button`, and `ViewStateMachine`, which shows one of several mutually exclusive looks with instant or fade transitions. Keeps input and visuals apart. MIT licensed, pre-release (0.x).
+
+## Docs
+
+- [README](https://github.com/sgonzalezrozo/unity-ui-foundations/blob/main/README.md): installation, quick start, API, troubleshooting, FAQ
+- [Rules for AI coding agents](https://github.com/sgonzalezrozo/unity-ui-foundations/blob/main/Documentation~/agent-rules.md): copy into AGENTS.md, CLAUDE.md or Cursor rules
+- [Changelog](https://github.com/sgonzalezrozo/unity-ui-foundations/blob/main/CHANGELOG.md)
+
+## Optional
+
+- [Unity Architecture Agents](https://github.com/sgonzalezrozo/unity-architecture-agents): architecture rules and a verify loop for AI coding agents on Unity

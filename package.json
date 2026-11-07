@@ -17,7 +17,17 @@
     "ui",
     "ugui",
     "mvc",
-    "state-machine"
+    "state-machine",
+    "unity",
+    "unity3d",
+    "unity6",
+    "unity-package",
+    "upm",
+    "csharp",
+    "gamedev",
+    "button-alternative",
+    "click-handler",
+    "view-state"
   ],
   "dependencies": {
     "com.unity.ugui": "1.0.0"
