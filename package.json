@@ -1,6 +1,6 @@
 {
   "name": "com.sgonzalezrozo.ui-foundations",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "displayName": "UI Foundations",
   "description": "Button and Toggle alternatives for Unity uGUI in strict MVC: a click Controller base class and a view state machine with instant and fade transitions.",
   "unity": "2022.3",

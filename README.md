@@ -4,7 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Tested on Unity 6000.3](https://img.shields.io/badge/Unity-6000.3%20tested-black?logo=unity)](#compatibility)
-[![Version 0.1.0](https://img.shields.io/badge/version-0.1.0-blue.svg)](CHANGELOG.md)
+[![Version 0.1.1](https://img.shields.io/badge/version-0.1.1-blue.svg)](CHANGELOG.md)
 
 UI Foundations is a free, open-source alternative to uGUI's `Button` and `Toggle` in Unity 6, for MVC projects that keep input and visuals apart. `BaseClickController` is an invisible raycast target with an `OnClick()` override, and `ViewStateMachine` shows one of several looks at a time, with instant or fade transitions.
 
@@ -41,6 +41,12 @@ Git must be installed on your machine.
 
 ```text
 https://github.com/sgonzalezrozo/unity-ui-foundations.git
+```
+
+To pin a release, add its tag:
+
+```text
+https://github.com/sgonzalezrozo/unity-ui-foundations.git#v0.1.1
 ```
 
 ## Quick start
@@ -149,7 +155,7 @@ In Unity, open **Window > Package Manager**, select **+ > Add package from git U
 
 ### Is it production-ready? Does anyone use it?
 
-Not yet. UI Foundations is a pre-release package (`0.1.0`) by a single author, with no automated tests yet. It isn't used in a shipped game, and it has no other users yet. Bug reports are very welcome. See [Project status](#project-status).
+Not yet. UI Foundations is a pre-release package (`0.1.1`) by a single author, with no automated tests yet. It isn't used in a shipped game, and it has no other users yet. Bug reports are very welcome. See [Project status](#project-status).
 
 ### Is it free for commercial use?
 
@@ -157,7 +163,7 @@ Yes. It's MIT licensed.
 
 ## Project status
 
-This is a pre-release package at version `0.1.0`. Its API and behavior may change before `1.0.0`. Not yet used in a shipped game. There's no automated test suite yet.
+This is a pre-release package at version `0.1.1`. Its API and behavior may change before `1.0.0`. Not yet used in a shipped game. There's no automated test suite yet.
 
 Until `1.0.0`, minor versions (`0.x.0`) can include breaking changes, and patch versions (`0.x.y`) don't. Breaking changes are marked **Breaking** in the [changelog](CHANGELOG.md).
 
@@ -171,10 +177,8 @@ Bug reports and pull requests are welcome. Please open an issue before starting 
 |---|---|
 | [Unity Architecture Agents](https://github.com/sgonzalezrozo/unity-architecture-agents) | Architecture rules for coding agents |
 | [Fast IoC](https://github.com/sgonzalezrozo/unity-fast-ioc) | Code-generated dependency injection |
-| [Screen System](https://github.com/sgonzalezrozo/unity-screen-system) | Declarative UI navigation |
 | [UI Tweens](https://github.com/sgonzalezrozo/unity-ui-tweens) | ECS-based UI animation |
-| [Recyclable Scroller](https://github.com/sgonzalezrozo/unity-recyclable-scroller) | Virtualized lists |
-| [Enhanced Console](https://github.com/sgonzalezrozo/unity-enhanced-console) | Unity Editor log triage |
+| [Tools Core](https://github.com/sgonzalezrozo/unity-tools-core) | Shared injection interfaces |
 
 ## License
 
