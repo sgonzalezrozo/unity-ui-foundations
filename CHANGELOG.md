@@ -4,6 +4,13 @@ All notable changes to this package are documented in this file.
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-11-17
+
+### Added
+
+- After the package is imported, a dialog links to the documentation, once per project.
+- `documentationUrl` in `package.json`, so the Package Manager links to the documentation.
+
 ## [0.1.1] - 2026-11-10
 
 ### Documentation

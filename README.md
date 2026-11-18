@@ -4,7 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Tested on Unity 6000.3](https://img.shields.io/badge/Unity-6000.3%20tested-black?logo=unity)](#compatibility)
-[![Version 0.1.1](https://img.shields.io/badge/version-0.1.1-blue.svg)](CHANGELOG.md)
+[![Version 0.1.2](https://img.shields.io/badge/version-0.1.2-blue.svg)](CHANGELOG.md)
 
 UI Foundations is a free, open-source alternative to uGUI's `Button` and `Toggle` in Unity 6, for MVC projects that keep input and visuals apart. `BaseClickController` is an invisible raycast target with an `OnClick()` override, and `ViewStateMachine` shows one of several looks at a time, with instant or fade transitions.
 
@@ -46,7 +46,7 @@ https://github.com/sgonzalezrozo/unity-ui-foundations.git
 To pin a release, add its tag:
 
 ```text
-https://github.com/sgonzalezrozo/unity-ui-foundations.git#v0.1.1
+https://github.com/sgonzalezrozo/unity-ui-foundations.git#v0.1.2
 ```
 
 ## Quick start
@@ -155,7 +155,7 @@ In Unity, open **Window > Package Manager**, select **+ > Add package from git U
 
 ### Is it production-ready? Does anyone use it?
 
-Not yet. UI Foundations is a pre-release package (`0.1.1`) by a single author, with no automated tests yet. It isn't used in a shipped game, and it has no other users yet. Bug reports are very welcome. See [Project status](#project-status).
+Not yet. UI Foundations is a pre-release package (`0.1.2`) by a single author, with no automated tests yet. It isn't used in a shipped game, and it has no other users yet. Bug reports are very welcome. See [Project status](#project-status).
 
 ### Is it free for commercial use?
 
@@ -163,7 +163,7 @@ Yes. It's MIT licensed.
 
 ## Project status
 
-This is a pre-release package at version `0.1.1`. Its API and behavior may change before `1.0.0`. Not yet used in a shipped game. There's no automated test suite yet.
+This is a pre-release package at version `0.1.2`. Its API and behavior may change before `1.0.0`. Not yet used in a shipped game. There's no automated test suite yet.
 
 Until `1.0.0`, minor versions (`0.x.0`) can include breaking changes, and patch versions (`0.x.y`) don't. Breaking changes are marked **Breaking** in the [changelog](CHANGELOG.md).
 
