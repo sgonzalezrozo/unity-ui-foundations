@@ -12,7 +12,7 @@
 
 ## Status
 
-Pre-release (`0.1.3`), by a single author, not yet used in a shipped game. There's no automated test suite yet. Its API and behavior may change before `1.0.0`.
+Pre-release (`0.1.4`), by a single author, not yet used in a shipped game. There's no automated test suite yet. Its API and behavior may change before `1.0.0`.
 
 ## Versioning
 
