@@ -64,3 +64,10 @@ ehthumbs.db
 Thumbs.db
 Desktop.ini
 __MACOSX/
+
+# The global gitignore ignores *~ (editor backups), which also matches the
+# folders Unity skips on import. Keep them in the repository.
+!Samples~/
+!Samples~/**
+!Documentation~/
+!Documentation~/**

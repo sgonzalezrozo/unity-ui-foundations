@@ -4,7 +4,11 @@
 
 ## Docs
 
-- [README](https://github.com/sgonzalezrozo/unity-ui-foundations/blob/main/README.md): installation, quick start, API, troubleshooting, FAQ
+- [README](https://github.com/sgonzalezrozo/unity-ui-foundations/blob/main/README.md): overview, installation, quickstart, links to every guide
+- [API Reference](https://github.com/sgonzalezrozo/unity-ui-foundations/blob/main/Documentation~/api-reference.md): BaseClickController, ViewStateMachine, requirements
+- [AI Coding Agents](https://github.com/sgonzalezrozo/unity-ui-foundations/blob/main/Documentation~/ai-agents.md)
+- [FAQ](https://github.com/sgonzalezrozo/unity-ui-foundations/blob/main/Documentation~/faq.md)
+- [Project Status](https://github.com/sgonzalezrozo/unity-ui-foundations/blob/main/Documentation~/project-status.md): status, versioning, contributing, related packages
 - [Rules for AI coding agents](https://github.com/sgonzalezrozo/unity-ui-foundations/blob/main/Documentation~/agent-rules.md): copy into AGENTS.md, CLAUDE.md or Cursor rules
 - [Changelog](https://github.com/sgonzalezrozo/unity-ui-foundations/blob/main/CHANGELOG.md)
 

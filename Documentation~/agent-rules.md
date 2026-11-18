@@ -34,4 +34,4 @@ public class BuyController : BaseClickController
 ## Don't
 
 - Don't write `.prefab` files as text. Describe the hierarchy and Inspector steps instead, or use Unity editor tools if you have them.
-- Don't invent members. If one isn't listed here or in the README, read the package source.
+- Don't invent members. If one isn't listed here or in the [API Reference](api-reference.md), read the package source.

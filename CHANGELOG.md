@@ -4,6 +4,17 @@ All notable changes to this package are documented in this file.
 
 ## [Unreleased]
 
+## [0.1.3] - 2026-11-18
+
+### Documentation
+
+- The README is now a short overview with installation, a quickstart and links. Its content moved into guides in `Documentation~/`: API Reference, AI Coding Agents, FAQ and Project Status.
+- Installation instructions no longer pin a release tag.
+
+### Removed
+
+- The welcome dialog shown once per project after the package is imported.
+
 ## [0.1.2] - 2026-11-17
 
 ### Added
