@@ -8,7 +8,7 @@
 Small uGUI building blocks for strict MVC: click Controllers, view states and group gradients. An alternative to `Button` and `Toggle` that keeps input and visuals apart.
 
 [![Unity](https://img.shields.io/badge/Unity-6000.3%20tested-black?style=for-the-badge&logo=unity)](Documentation~/api-reference.md#requirements)
-[![Version](https://img.shields.io/badge/version-0.1.4-blue?style=for-the-badge)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-0.2.0-blue?style=for-the-badge)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
 [**Installation**](#installation) • [**Key Features**](#key-features) • [**Quickstart**](#quickstart) • [**API Reference**](Documentation~/api-reference.md) • [**AI Agents**](Documentation~/ai-agents.md) • [**FAQ**](Documentation~/faq.md)

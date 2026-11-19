@@ -4,6 +4,8 @@ All notable changes to this package are documented in this file.
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-11-19
+
 ### Added
 
 - `UIGradientGroup` spreads one gradient across every `Graphic` under it, as if they were one shape, at any angle. Each child gets a hidden `UIGradient` mesh effect that colors its vertices by where they sit in the group's rectangle. `IgnoreGroupGradient` leaves a child out, alone or with its children.
