@@ -12,7 +12,7 @@
 
 ## Status
 
-Pre-release (`0.3.0`), by a single author, not yet used in a shipped game. Automated tests cover the group gradient; the click Controller and the view state machine don't have tests yet. Its API and behavior may change before `1.0.0`.
+Pre-release (`0.3.1`), by a single author, not yet used in a shipped game. Automated tests cover the group gradient; the click Controller and the view state machine don't have tests yet. Its API and behavior may change before `1.0.0`.
 
 ## Versioning
 

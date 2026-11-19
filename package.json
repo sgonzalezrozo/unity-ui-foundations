@@ -1,6 +1,6 @@
 {
   "name": "com.sgonzalezrozo.ui-foundations",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "displayName": "UI Foundations",
   "description": "uGUI building blocks for strict MVC: a click Controller base class that replaces Button, a view state machine with instant and fade transitions, and a group gradient that spans several Graphics.",
   "documentationUrl": "https://github.com/sgonzalezrozo/unity-ui-foundations#readme",
@@ -8,6 +8,7 @@
   "license": "MIT",
   "author": {
     "name": "Santiago González Rozo",
+    "email": "santiago.gonzalezrozo@outlook.com",
     "url": "https://github.com/sgonzalezrozo"
   },
   "repository": {
