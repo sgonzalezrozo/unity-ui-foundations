@@ -59,7 +59,7 @@ namespace UIFoundations
             for (int i = 0; i < helper.currentVertCount; i++)
             {
                 helper.PopulateUIVertex(ref vertex, i);
-                vertex.color = sampler.Evaluate(CalculateTime(vertex));
+                vertex.color = Blend(sampler.Evaluate(CalculateTime(vertex)), vertex.color);
                 helper.SetUIVertex(vertex, i);
             }
         }
@@ -152,8 +152,18 @@ namespace UIFoundations
         private UIVertex WithGradientColor(TimedVertex timed)
         {
             UIVertex vertex = timed.Vertex;
-            vertex.color = sampler.Evaluate(timed.Time);
+            vertex.color = Blend(sampler.Evaluate(timed.Time), vertex.color);
             return vertex;
+        }
+
+        /// <summary>
+        /// The gradient's color with its alpha multiplied by the Graphic's own: a Graphic faded to alpha 0 stays
+        /// invisible, and half-transparent text stays half-transparent. The gradient decides the hue.
+        /// </summary>
+        internal static Color32 Blend(Color32 gradient, Color32 graphic)
+        {
+            gradient.a = (byte)((gradient.a * graphic.a + 127) / 255);
+            return gradient;
         }
 
         private float CalculateTime(UIVertex vertex)

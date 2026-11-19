@@ -92,17 +92,25 @@ public class RarityView : MonoBehaviour
 |---|---|
 | `Gradient` | The gradient spread across the children. Setting it repaints them. |
 | `Angle` | Direction in degrees, 0–360. Setting it repaints the children. |
-| `Refresh()` | Finds the Graphics again and repaints them. Call it after changing `IgnoreGroupGradient` or moving a child without resizing it. |
+| `Refresh()` | Finds the Graphics again and repaints them. Call it after changing `IgnoreGroupGradient` or moving a child without resizing it. Outside Play Mode the Inspector has a **Refresh** button that does the same. |
 
 ### How it works and what it costs
 
 - **Nothing runs per frame.** A child is painted when uGUI rebuilds its mesh. Changing the gradient, the angle or the group's size only marks the children for rebuild.
 - **No allocations while painting.** The gradient is read into a 256-color table when it changes, so a vertex costs one lookup.
 - **Extra keys cost more.** A gradient with only its two end keys recolors vertices in place. A key inside a Graphic slices that Graphic's triangles so the key's color shows exactly, which roughly doubles its rebuild cost.
-- **It replaces vertex colors.** The Graphic's own `color` is ignored while it's in a group, so fade with a `CanvasGroup` instead.
+- **The gradient sets the hue; the Graphic keeps its alpha.** A Graphic's own RGB is replaced, but its alpha multiplies the gradient's, so a Graphic faded to alpha 0 stays invisible and half-transparent text stays half-transparent.
 - **Moving a child** without changing its size doesn't rebuild its mesh, so its gradient stays where it was until the next rebuild or `Refresh()`.
 - **TextMesh Pro** text isn't painted: TMP builds its mesh without uGUI mesh effects.
 - **Edit `Gradient` by assigning it.** If you change the keys of the same `Gradient` object in code, assign it again so the group reads the new keys.
+
+## Editor menus
+
+| Menu | What it does |
+|---|---|
+| Hierarchy > **UI Foundations > Click Controller…** | Asks for a class name, writes a `BaseClickController` subclass in the folder open in the Project window, and once Unity has compiled it adds it on a new child of the selected object |
+| Hierarchy > **UI Foundations > View State Machine (On, Off)** | Adds a `ViewStateMachine` with two states, `On` and `Off`, each with its Canvas, CanvasGroup and GraphicRaycaster; the initial state is `Off` |
+| **Tools > UI Foundations > Documentation** | Opens the README on GitHub |
 
 ## Requirements
 

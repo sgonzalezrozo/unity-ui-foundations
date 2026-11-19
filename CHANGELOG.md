@@ -4,6 +4,23 @@ All notable changes to this package are documented in this file.
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-11-19
+
+### Fixed
+
+- **UIGradientGroup** ignored the alpha of the Graphics it painted: a Graphic faded to alpha 0 still showed the gradient at full opacity. The gradient now sets the hue and multiplies its alpha by the Graphic's, in both the in-place and the sliced paths. Tests cover alpha 0, half alpha, a tinted Graphic and a gradient with alpha 0.
+
+### Added
+
+- A **Refresh** button in the `UIGradientGroup` Inspector, outside Play Mode.
+- Hierarchy menu **UI Foundations > Click Controller…**: asks for a class name, writes a `BaseClickController` subclass and adds it on a new child of the selected object after the compile.
+- Hierarchy menu **UI Foundations > View State Machine (On, Off)**: a `ViewStateMachine` with `On` and `Off` states already set up.
+- **Tools > UI Foundations > Documentation** opens the README on GitHub.
+
+### Documentation
+
+- The README's feature list no longer lists the custom Inspectors or the agent rules file.
+
 ## [0.2.0] - 2026-11-19
 
 ### Added

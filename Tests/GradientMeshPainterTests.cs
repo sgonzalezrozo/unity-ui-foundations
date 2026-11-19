@@ -39,12 +39,15 @@ namespace UIFoundations.Tests
         }
 
         private void AddQuad(float xMin, float xMax)
+            => AddQuad(xMin, xMax, Color.white);
+
+        private void AddQuad(float xMin, float xMax, Color32 color)
         {
             int first = helper.currentVertCount;
-            helper.AddVert(new Vector3(xMin, -HALF_HEIGHT), Color.white, new Vector4(0f, 0f));
-            helper.AddVert(new Vector3(xMin, HALF_HEIGHT), Color.white, new Vector4(0f, 1f));
-            helper.AddVert(new Vector3(xMax, HALF_HEIGHT), Color.white, new Vector4(1f, 1f));
-            helper.AddVert(new Vector3(xMax, -HALF_HEIGHT), Color.white, new Vector4(1f, 0f));
+            helper.AddVert(new Vector3(xMin, -HALF_HEIGHT), color, new Vector4(0f, 0f));
+            helper.AddVert(new Vector3(xMin, HALF_HEIGHT), color, new Vector4(0f, 1f));
+            helper.AddVert(new Vector3(xMax, HALF_HEIGHT), color, new Vector4(1f, 1f));
+            helper.AddVert(new Vector3(xMax, -HALF_HEIGHT), color, new Vector4(1f, 0f));
             helper.AddTriangle(first, first + 1, first + 2);
             helper.AddTriangle(first + 2, first + 3, first);
         }
@@ -149,6 +152,74 @@ namespace UIFoundations.Tests
                 AddQuad(-HALF_WIDTH, HALF_WIDTH);
                 painter.Paint(helper, sampler, Matrix4x4.identity);
             }, Is.Not.AllocatingGCMemory());
+        }
+
+        // A Graphic's own alpha (a faded Image, a hidden Text) survives the gradient. Without the inner stop the mesh is
+        // recolored in place; with it, the triangles are sliced. Both paths keep the alpha.
+        [TestCase(0f, 1f)]
+        [TestCase(0f, 0.5f, 1f)]
+        public void Paint_GraphicWithAlphaZero_StaysInvisible(params float[] keys)
+        {
+            AddQuad(-HALF_WIDTH, HALF_WIDTH, new Color32(255, 255, 255, 0));
+
+            new GradientMeshPainter().Paint(helper, MakeSampler(keys), Matrix4x4.identity);
+
+            foreach (UIVertex vertex in ReadVertices())
+                Assert.That(vertex.color.a, Is.EqualTo(0));
+        }
+
+        [TestCase(0f, 1f)]
+        [TestCase(0f, 0.5f, 1f)]
+        public void Paint_HalfTransparentGraphic_KeepsHalfTheGradientAlpha(params float[] keys)
+        {
+            AddQuad(-HALF_WIDTH, HALF_WIDTH, new Color32(255, 255, 255, 128));
+
+            new GradientMeshPainter().Paint(helper, MakeSampler(keys), Matrix4x4.identity);
+
+            foreach (UIVertex vertex in ReadVertices())
+                Assert.That(vertex.color.a, Is.EqualTo(128));
+        }
+
+        [Test]
+        public void Paint_TintedGraphic_TakesTheGradientHue()
+        {
+            AddQuad(-HALF_WIDTH, HALF_WIDTH, new Color32(255, 0, 0, 255));
+
+            new GradientMeshPainter().Paint(helper, MakeSampler(0f, 1f), Matrix4x4.identity);
+
+            Color32 rightEdge = FindVertexAtX(ReadVertices(), HALF_WIDTH).color;
+            Assert.That(rightEdge.g, Is.EqualTo(255), "the gradient's white, not the Graphic's red");
+        }
+
+        [Test]
+        public void Paint_GradientAlphaZero_MakesTheMeshInvisible()
+        {
+            Gradient transparent = new();
+            transparent.SetKeys(
+                new[] { new GradientColorKey(Color.black, 0f), new GradientColorKey(Color.white, 1f) },
+                new[] { new GradientAlphaKey(0f, 0f), new GradientAlphaKey(0f, 1f) });
+            GradientSampler sampler = new();
+            sampler.SetGradient(transparent);
+            sampler.SetFrame(0f, Group);
+            AddQuad(-HALF_WIDTH, HALF_WIDTH);
+
+            new GradientMeshPainter().Paint(helper, sampler, Matrix4x4.identity);
+
+            foreach (UIVertex vertex in ReadVertices())
+                Assert.That(vertex.color.a, Is.EqualTo(0));
+        }
+
+        [TestCase(255, 255, 255)]
+        [TestCase(255, 0, 0)]
+        [TestCase(0, 255, 0)]
+        [TestCase(128, 128, 64)]
+        [TestCase(200, 51, 40)]
+        public void Blend_MultipliesOnlyTheAlpha(int gradientAlpha, int graphicAlpha, int expected)
+        {
+            Color32 blended = GradientMeshPainter.Blend(new Color32(10, 20, 30, (byte)gradientAlpha), new Color32(200, 100, 50, (byte)graphicAlpha));
+
+            Assert.That(blended.a, Is.EqualTo(expected).Within(1));
+            Assert.That((blended.r, blended.g, blended.b), Is.EqualTo(((byte)10, (byte)20, (byte)30)));
         }
     }
 }
