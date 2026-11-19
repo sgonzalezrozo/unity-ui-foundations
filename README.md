@@ -5,7 +5,7 @@
 <sub>DESIGNED & BUILT BY</sub><br>
 **✦ [`SANTIAGO GONZÁLEZ ROZO (@sgonzalezrozo)`](https://github.com/sgonzalezrozo) ✦**
 
-Small uGUI building blocks for strict MVC: click Controllers and view states. An alternative to `Button` and `Toggle` that keeps input and visuals apart.
+Small uGUI building blocks for strict MVC: click Controllers, view states and group gradients. An alternative to `Button` and `Toggle` that keeps input and visuals apart.
 
 [![Unity](https://img.shields.io/badge/Unity-6000.3%20tested-black?style=for-the-badge&logo=unity)](Documentation~/api-reference.md#requirements)
 [![Version](https://img.shields.io/badge/version-0.1.4-blue?style=for-the-badge)](CHANGELOG.md)
@@ -39,7 +39,9 @@ There's nothing to set up after installing.
   Click logic stays in code, not in Inspector events, and an `Interactable` switch also turns off raycasts.
 * **[View states](Documentation~/api-reference.md#viewstatemachine)**: `ViewStateMachine` shows one look at a time from a list, such as locked, available and owned.
   Choose a state by name or index, with instant or fade transitions.
-* **[Custom Inspectors](Documentation~/api-reference.md)** for both components.
+* **[Group gradients](Documentation~/api-reference.md#uigradientgroup)**: `UIGradientGroup` paints one gradient across several Graphics, as if they were a single shape.
+  Set the gradient and angle on the parent; children can opt out with `IgnoreGroupGradient`.
+* **[Custom Inspectors](Documentation~/api-reference.md)** for the click Controller and the view state machine.
 * **[Agent-ready](Documentation~/ai-agents.md)**: ships a rules file so coding agents use the real API.
 
 ---

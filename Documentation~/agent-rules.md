@@ -31,6 +31,13 @@ public class BuyController : BaseClickController
 - Name each state after its enum value, and call `SetState(state.ToString())` from a View.
 - Members: `SetState(name)`, `SetState(index)`, `SetState(name, transition)`, `SetStateInstant(name)`, `IsInState(name)`, `CurrentStateName`, `CurrentStateIndex`, `IsTransitioning`, `OnStateChanged`.
 
+## Gradients
+
+- To paint one gradient across several Graphics, add `UIGradientGroup` to their parent and set `Gradient` and `Angle` from a View.
+- Add `IgnoreGroupGradient` to a child to leave it out (`IgnoreMode`: `SelfOnly` or `IncludeChildren`), then call `Refresh()` on the group if it's already running.
+- The group replaces the children's vertex colors: fade with a `CanvasGroup`, not `Graphic.color`. It doesn't paint TextMesh Pro text.
+- Never add `UIGradient` yourself: the group manages it.
+
 ## Don't
 
 - Don't write `.prefab` files as text. Describe the hierarchy and Inspector steps instead, or use Unity editor tools if you have them.

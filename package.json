@@ -2,7 +2,7 @@
   "name": "com.sgonzalezrozo.ui-foundations",
   "version": "0.1.4",
   "displayName": "UI Foundations",
-  "description": "Button and Toggle alternatives for Unity uGUI in strict MVC: a click Controller base class and a view state machine with instant and fade transitions.",
+  "description": "uGUI building blocks for strict MVC: a click Controller base class that replaces Button, a view state machine with instant and fade transitions, and a group gradient that spans several Graphics.",
   "documentationUrl": "https://github.com/sgonzalezrozo/unity-ui-foundations#readme",
   "unity": "2022.3",
   "license": "MIT",
@@ -28,7 +28,9 @@
     "gamedev",
     "button-alternative",
     "click-handler",
-    "view-state"
+    "view-state",
+    "gradient",
+    "ui-gradient"
   ],
   "dependencies": {
     "com.unity.ugui": "1.0.0"

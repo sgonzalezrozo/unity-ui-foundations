@@ -14,6 +14,7 @@ An agent reads `Packages/manifest.json`. If it lists `com.sgonzalezrozo.ui-found
 | Disable clicks | Set `Interactable` to `false` |
 | Cache a Cell Model | Override `InitializeController()` and return `true` |
 | Mutually exclusive looks | `ViewStateMachine` and `SetState(stateName)` |
+| One gradient across several Graphics | `UIGradientGroup` on the parent; `IgnoreGroupGradient` to leave a child out |
 
 Name each state after its enum value. If a Controller cleans up in `OnDestroy`, override it and call `base.OnDestroy()`, because `BaseClickController` derives from `Graphic`.
 

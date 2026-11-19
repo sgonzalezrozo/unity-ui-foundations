@@ -4,6 +4,12 @@ All notable changes to this package are documented in this file.
 
 ## [Unreleased]
 
+### Added
+
+- `UIGradientGroup` spreads one gradient across every `Graphic` under it, as if they were one shape, at any angle. Each child gets a hidden `UIGradient` mesh effect that colors its vertices by where they sit in the group's rectangle. `IgnoreGroupGradient` leaves a child out, alone or with its children.
+- The gradient runs only when uGUI rebuilds a mesh: nothing runs per frame, and painting allocates no memory.
+- EditMode tests for the gradient math and mesh painting, including a zero-allocation check, and a benchmark you run by hand (`GradientBenchmark`).
+
 ## [0.1.4] - 2026-11-18
 
 ### Documentation

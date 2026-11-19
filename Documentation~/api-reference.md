@@ -4,6 +4,7 @@
 
 - [BaseClickController](#baseclickcontroller)
 - [ViewStateMachine](#viewstatemachine)
+- [UIGradientGroup](#uigradientgroup)
 - [Requirements](#requirements)
 
 ---
@@ -63,6 +64,45 @@ public class PurchaseStateView : MonoBehaviour
 | `OnStateChanged` | Runs after the state changes |
 
 Name each state after its enum value, so code can pass `state.ToString()`.
+
+## UIGradientGroup
+
+1. Add `UIGradientGroup` to a parent object with a `RectTransform`.
+2. Set its gradient and angle in the Inspector. 0° runs left to right, 90° bottom to top, across the parent's rectangle.
+3. Every `Graphic` below it gets a hidden `UIGradient`, so a background, a border and an icon read as one shape.
+
+To leave a child out, add `IgnoreGroupGradient` to it. Its `IgnoreMode` is `SelfOnly` or `IncludeChildren`. A Graphic under two groups belongs to the nearest one.
+
+```csharp
+using UIFoundations;
+using UnityEngine;
+
+public class RarityView : MonoBehaviour
+{
+    [SerializeField] private UIGradientGroup background;
+
+    public void Render(Gradient rarityGradient)
+    {
+        background.Gradient = rarityGradient;
+    }
+}
+```
+
+| Member | Purpose |
+|---|---|
+| `Gradient` | The gradient spread across the children. Setting it repaints them. |
+| `Angle` | Direction in degrees, 0–360. Setting it repaints the children. |
+| `Refresh()` | Finds the Graphics again and repaints them. Call it after changing `IgnoreGroupGradient` or moving a child without resizing it. |
+
+### How it works and what it costs
+
+- **Nothing runs per frame.** A child is painted when uGUI rebuilds its mesh. Changing the gradient, the angle or the group's size only marks the children for rebuild.
+- **No allocations while painting.** The gradient is read into a 256-color table when it changes, so a vertex costs one lookup.
+- **Extra keys cost more.** A gradient with only its two end keys recolors vertices in place. A key inside a Graphic slices that Graphic's triangles so the key's color shows exactly, which roughly doubles its rebuild cost.
+- **It replaces vertex colors.** The Graphic's own `color` is ignored while it's in a group, so fade with a `CanvasGroup` instead.
+- **Moving a child** without changing its size doesn't rebuild its mesh, so its gradient stays where it was until the next rebuild or `Refresh()`.
+- **TextMesh Pro** text isn't painted: TMP builds its mesh without uGUI mesh effects.
+- **Edit `Gradient` by assigning it.** If you change the keys of the same `Gradient` object in code, assign it again so the group reads the new keys.
 
 ## Requirements
 

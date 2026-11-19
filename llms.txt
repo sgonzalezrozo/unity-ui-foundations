@@ -1,11 +1,11 @@
 # UI Foundations
 
-> uGUI building blocks for strict MVC in Unity 6: `BaseClickController`, an invisible raycast target with an `OnClick()` override that replaces `Button`, and `ViewStateMachine`, which shows one of several mutually exclusive looks with instant or fade transitions. Keeps input and visuals apart. MIT licensed, pre-release (0.x), single author, no other users yet.
+> uGUI building blocks for strict MVC in Unity 6: `BaseClickController`, an invisible raycast target with an `OnClick()` override that replaces `Button`; `ViewStateMachine`, which shows one of several mutually exclusive looks with instant or fade transitions; and `UIGradientGroup`, which spreads one gradient across several Graphics. Keeps input and visuals apart. MIT licensed, pre-release (0.x), single author, no other users yet.
 
 ## Docs
 
 - [README](https://github.com/sgonzalezrozo/unity-ui-foundations/blob/main/README.md): overview, installation, quickstart, links to every guide
-- [API Reference](https://github.com/sgonzalezrozo/unity-ui-foundations/blob/main/Documentation~/api-reference.md): BaseClickController, ViewStateMachine, requirements
+- [API Reference](https://github.com/sgonzalezrozo/unity-ui-foundations/blob/main/Documentation~/api-reference.md): BaseClickController, ViewStateMachine, UIGradientGroup, requirements
 - [AI Coding Agents](https://github.com/sgonzalezrozo/unity-ui-foundations/blob/main/Documentation~/ai-agents.md)
 - [FAQ](https://github.com/sgonzalezrozo/unity-ui-foundations/blob/main/Documentation~/faq.md)
 - [Project Status](https://github.com/sgonzalezrozo/unity-ui-foundations/blob/main/Documentation~/project-status.md): status, versioning, contributing, related packages
