@@ -31,6 +31,8 @@ https://github.com/sgonzalezrozo/unity-ui-foundations.git
 
 There's nothing to set up after installing.
 
+**Assembly references.** If your code is in an assembly definition (`.asmdef`), add `UIFoundations` and `UnityEngine.UI` to its **Assembly Definition References**. Unity doesn't add them for you, and without them the build fails with `CS0246`.
+
 ---
 
 ## Key Features

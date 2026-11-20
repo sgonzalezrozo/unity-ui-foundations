@@ -6,6 +6,15 @@ Copy this file into your project's agent rules (for example `AGENTS.md`, `CLAUDE
 
 - This project uses **UI Foundations** (`com.sgonzalezrozo.ui-foundations`, namespace `UIFoundations`). Don't add `Button`, `Toggle`, `Slider` or `Dropdown`, and don't wire logic through Inspector `onClick` events.
 
+## Assembly references
+
+Unity doesn't add a package's assemblies to your assembly definitions. Every `.asmdef` whose code uses this package MUST list these in its **Assembly Definition References** (`references` in the JSON), in the same change that adds the first `using`. Without them the build fails with `CS0246: The type or namespace name 'UIFoundations' could not be found`. Code in `Assembly-CSharp` (no `.asmdef`) needs nothing.
+
+| Assembly | Needed for |
+|---|---|
+| `UIFoundations` | `BaseClickController`, `ViewStateMachine`, `UIGradientGroup` (namespace `UIFoundations`) |
+| `UnityEngine.UI` | `BaseClickController` derives from `Graphic` |
+
 ## Clicks
 
 ```csharp

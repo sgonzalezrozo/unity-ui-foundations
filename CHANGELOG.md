@@ -4,6 +4,10 @@ All notable changes to this package are documented in this file.
 
 ## [Unreleased]
 
+### Documentation
+
+- The README and `agent-rules.md` list the assemblies an assembly definition needs to use UI Foundations: `UIFoundations` and `UnityEngine.UI`.
+
 ## [0.3.1] - 2026-11-19
 
 ### Changed
