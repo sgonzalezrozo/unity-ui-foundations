@@ -16,14 +16,27 @@ namespace UIFoundations
         private readonly List<Graphic> candidates = new();
         private readonly List<Graphic> members = new();
 
-        public void Collect(UIGradientGroup group)
+        private readonly List<Graphic> previous = new();
+
+        /// <summary>
+        /// Rebuilds the member list. Returns true when the members changed.
+        /// </summary>
+        public bool Collect(UIGradientGroup group)
         {
+            previous.Clear();
+            previous.AddRange(members);
             members.Clear();
             candidates.Clear();
             group.GetComponentsInChildren(true, candidates);
             for (int i = 0; i < candidates.Count; i++)
                 CollectCandidate(candidates[i], group);
             candidates.Clear();
+
+            bool changed = previous.Count != members.Count;
+            for (int i = 0; !changed && i < members.Count; i++)
+                changed = previous[i] != members[i];
+            previous.Clear();
+            return changed;
         }
 
         public void MarkDirty()

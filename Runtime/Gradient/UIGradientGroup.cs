@@ -65,10 +65,17 @@ namespace UIFoundations
         private void OnEnable()
         {
             Refresh();
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.hierarchyChanged -= OnHierarchyChanged;
+            UnityEditor.EditorApplication.hierarchyChanged += OnHierarchyChanged;
+#endif
         }
 
         private void OnDisable()
         {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.hierarchyChanged -= OnHierarchyChanged;
+#endif
             members.MarkDirty();
         }
 
@@ -77,6 +84,8 @@ namespace UIFoundations
             members.Release();
         }
 
+        // Only fires for direct children. Graphics added deeper are picked up by Refresh(), and in the
+        // Editor by OnHierarchyChanged.
         private void OnTransformChildrenChanged()
         {
             if (!isActiveAndEnabled)
@@ -85,6 +94,19 @@ namespace UIFoundations
             members.Collect(this);
             members.MarkDirty();
         }
+
+#if UNITY_EDITOR
+        // Tools that rebuild nested children (e.g. a Graphic created under a grandchild) don't trigger
+        // OnTransformChildrenChanged on the group, so the new Graphic would be left unpainted.
+        private void OnHierarchyChanged()
+        {
+            if (this == null || !isActiveAndEnabled)
+                return;
+
+            if (members.Collect(this))
+                members.MarkDirty();
+        }
+#endif
 
         private void OnRectTransformDimensionsChange()
         {
