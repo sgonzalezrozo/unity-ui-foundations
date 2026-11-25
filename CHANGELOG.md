@@ -4,6 +4,17 @@ All notable changes to this package are documented in this file.
 
 ## [Unreleased]
 
+## [0.3.3] - 2026-11-25
+
+### Fixed
+
+- `BaseClickController` logs its initialization error only in Play mode, so editor previews don't log it.
+- Gradient: the Editor picks up Graphics added below direct children (commit 3e91218).
+
+### Documentation
+
+- The `BaseClickController` signatures and `InitializeController` are in the API reference.
+
 ## [0.3.2] - 2026-11-19
 
 ### Documentation

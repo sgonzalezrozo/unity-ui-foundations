@@ -11,6 +11,18 @@
 
 ## BaseClickController
 
+Signatures (from `Runtime/BaseClickController.cs`):
+
+```csharp
+public abstract class BaseClickController : Graphic, IPointerClickHandler
+{
+    protected override void OnValidate();          // editor only
+    protected override void Start();               // calls InitializeController(), then gates clicks on its result
+    protected virtual bool InitializeController(); // override to cache what the Controller needs; false disables it
+    protected abstract void OnClick();             // the click
+}
+```
+
 Inherit from `BaseClickController` and implement `OnClick()`:
 
 ```csharp

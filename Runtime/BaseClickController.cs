@@ -48,7 +48,9 @@ namespace UIFoundations
             if (isInitialized)
                 return;
 
-            Debug.LogError($"[{GetType().Name}] Controller initialization failed on {gameObject.name}", gameObject);
+            if (Application.isPlaying)
+                Debug.LogError($"[{GetType().Name}] Controller initialization failed on {gameObject.name}", gameObject);
+                
             enabled = false;
         }
 
